@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-list no-padding>
+    <ion-list-header color="dark">
+      Gekoppelde apparaten
+      <button ion-button item-end color="primary" (click)="disconnect()">Disconnect</button>
+    </ion-list-header>
+    <ion-item *ngFor="let device of pairedDevices">
+      <span (click)="selectDevice(device.address)">
+        {{device.name}}
+      </span>
+    </ion-item>
+    <ion-list-header color="dark">
+      Beschikbare apparaten
+      <button ion-button item-end color="primary" (click)="startScanning()">scan</button>
+    </ion-list-header>
+    <ion-item>
+      Klik op "scan" voor beschikbare apparaten
+    </ion-item>
+    <ion-item *ngFor='let device of unpairedDevices'>
+      <span (click)="selectDevice(device.address)">
+        {{device.name}}
+      </span>
+    </ion-item>
+    <ion-item *ngIf="gettingDevices">
+      <ion-spinner name="crescent"></ion-spinner>
+    </ion-item>    
+  </ion-list>
+</ion-content>

@@ -1,14 +1,82 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row class="height-100">
+      <ion-col col-12 col-sm class="col-1">
+        <ion-row justify-content-center align-items-center class="height-25">
+          <ion-col col-12 style="padding:0 36px 0 36px">
+            <ion-list>
+              <ion-item color="dark">
+                <ion-avatar item-start>
+                  <img src="../assets/imgs/low-beam.png">
+                </ion-avatar>
+                <ion-toggle [(ngModel)]="lowBeam" (ionChange)="toggleLowbeam()" color="primary"></ion-toggle>
+              </ion-item>
+            </ion-list> 
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center align-items-center class="height-25">
+          <ion-col col-12 style="padding:0 36px 0 36px">
+            <ion-list>
+              <ion-item color="dark">
+                <ion-avatar item-start>
+                  <img src="../assets/imgs/high-beam.png">
+                </ion-avatar>
+                <ion-toggle [(ngModel)]="highBeam" (ionChange)="toggleHighbeam()" color="primary"></ion-toggle>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center align-items-end class="height-25">
+          <ion-col no-padding col-12>
+            <ion-img width="64" height="64" src="../assets/imgs/electric-car.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center align-items-center class="height-25">
+          <ion-col no-padding col-12>
+            <button ion-button round outline color="light">{{range}} km</button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col col-12 col-sm class="col-2">
+        <ion-row justify-content-center align-items-center class="height-25" style="vertical-align:middle;">
+          <ion-col col-12>
+            <ion-img width="96" height="69" src="../assets/imgs/electric-boys-yoast-seo-logo.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center align-items-center class="height-50">
+          <ion-col col-12>
+            <p id="speedometer">
+              {{velocity}}
+            </p>
+            <p id="speedometer-unit">KM/H</p>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center align-items-center class="height-25">
+          <ion-col col-12>
+            <button ion-button round outline color="light">{{distance}} KM</button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col col-12 col-sm class="col-3">
+        <ion-row justify-content-center align-items-center class="height-25">
+          <ion-col col-12>
+            <button ion-button color="primary" (click)="goToSettings()">menu</button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="height-50">
+          <ion-col col-12>
+            <div class="pole"></div>
+            <div class="outer">
+              <div class="inner" [ngStyle]="innerStyle"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center align-items-center class="height-25">
+          <ion-col col-12>
+            <button ion-button round outline color="light">{{charge}} %</button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
